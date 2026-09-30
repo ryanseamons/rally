@@ -2,7 +2,7 @@
 
 **Debate with confidence.** Free practice tools for middle and high school students.
 
-[Open Rally](https://rally-debate-practice.ryan967215.chatgpt.site/) · [About the project](https://ryanseamons.com/projects/rally/)
+[Open Rally](https://rally.ryanseamons.com/) · [About the project](https://ryanseamons.com/projects/rally/)
 
 ![Rally practice dashboard](docs/rally-dashboard.png)
 
@@ -47,7 +47,7 @@ Browser tests expect the dev server at port 5173 and Google Chrome installed. Pr
 - `src/NotebookBackup.jsx` and `src/notebook-storage.mjs`: backup UI, validation, and safe merging.
 - `src/styles.css`: original design and responsive styles.
 - `public/`: local illustrations, fonts, prerecorded audio, and migration guide.
-- `.openai/hosting.json`: replacement Sites project identity.
+- `docs/HOSTING.md`: Cloudflare Pages deployment and domain setup.
 
 This is a recovery of the owner's public app, not the missing original TypeScript checkout. See [RECOVERY.md](RECOVERY.md) for provenance and limitations. No private notebook data or service credentials are included.
 

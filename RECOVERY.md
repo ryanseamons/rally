@@ -11,3 +11,5 @@ Additions: student-wide wording; validated notebook backup/restore; an optional 
 Keep the original site available while students move their notebooks. A new web address cannot directly read another origin's local storage. The export bookmark only reads `rally-notebook` on the exact original hostname and downloads it locally.
 
 On September 30, 2026, the owner requested migration to the current Sites account (ryan@latitude.io). The new project identity is recorded in .openai/hosting.json. Earlier public deployments remain available for notebook migration.
+
+Hosting was subsequently moved to Cloudflare Pages, directly connected to the public GitHub repository. ChatGPT Sites is no longer required to build, deploy, or serve Rally.
