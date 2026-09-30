@@ -1,4 +1,7 @@
 import NotebookBackup from "./NotebookBackup.jsx";
+import RoundTimer from "./RoundTimer.jsx";
+import ShareWithCoach from "./ShareWithCoach.jsx";
+import { Timer } from "lucide-react";
 import { mergeEntries } from "./notebook-storage.mjs";
 // Application recovered from the owner’s public Rally release. See RECOVERY.md.
 import {
@@ -4699,6 +4702,9 @@ function Notebook({
                             ),
                           ),
                         }),
+                        (0, R.jsx)(ShareWithCoach, {
+                          entry: e,
+                        }),
                       ],
                     },
                     e.id,
@@ -4709,6 +4715,27 @@ function Notebook({
       ],
     })
   );
+}
+const TAB_PATHS = {
+  home: `/`,
+  impromptu: `/impromptu`,
+  ld: `/lincoln-douglas`,
+  timer: `/timer`,
+  learn: `/learn`,
+  notebook: `/notebook`,
+};
+const TAB_TITLES = {
+  home: `Rally — Debate with confidence.`,
+  impromptu: `Impromptu practice · Rally`,
+  ld: `Lincoln–Douglas · Rally`,
+  timer: `Round timer · Rally`,
+  learn: `Learn · Rally`,
+  notebook: `My notebook · Rally`,
+};
+function tabFromPath(pathname) {
+  const path = pathname.replace(/\/+$/, ``) || `/`;
+  const match = Object.entries(TAB_PATHS).find(([, tabPath]) => tabPath === path);
+  return match ? match[0] : null;
 }
 function Rally() {
   let [e, t] = (0, i.useState)([30, 4, 11]);
@@ -4730,7 +4757,9 @@ function Rally() {
     [r, a] = (0, i.useState)(0),
     [o, s] = (0, i.useState)(null),
     [c, l] = (0, i.useState)(null),
-    [u, d] = (0, i.useState)(`home`),
+    [u, d] = (0, i.useState)(
+      () => tabFromPath(window.location.pathname) ?? `home`,
+    ),
     [f, p] = (0, i.useState)([]),
     [m, h] = (0, i.useState)(``),
     [g, _] = (0, i.useState)(!1),
@@ -4742,7 +4771,20 @@ function Rally() {
         top: 0,
         behavior: `instant`,
       }));
+    const path = TAB_PATHS[e] ?? `/`;
+    if (window.location.pathname !== path)
+      window.history.pushState({ tab: e }, ``, path);
   }, []);
+  (0, i.useEffect)(() => {
+    if (!tabFromPath(window.location.pathname))
+      window.history.replaceState({ tab: `home` }, ``, `/`);
+    const onPop = () => d(tabFromPath(window.location.pathname) ?? `home`);
+    window.addEventListener(`popstate`, onPop);
+    return () => window.removeEventListener(`popstate`, onPop);
+  }, []);
+  (0, i.useEffect)(() => {
+    document.title = TAB_TITLES[u] ?? TAB_TITLES.home;
+  }, [u]);
   return (
     (0, i.useEffect)(() => {
       try {
@@ -4820,6 +4862,17 @@ function Rally() {
                       }),
                       (0, R.jsx)(`span`, {
                         children: `Lincoln–Douglas`,
+                      }),
+                    ],
+                  }),
+                  (0, R.jsxs)(Lw, {
+                    value: `timer`,
+                    children: [
+                      (0, R.jsx)(Timer, {
+                        size: 16,
+                      }),
+                      (0, R.jsx)(`span`, {
+                        children: `Timer`,
                       }),
                     ],
                   }),
@@ -4957,6 +5010,14 @@ function Rally() {
                 }),
               }),
               (0, R.jsx)(Rw, {
+                value: `timer`,
+                forceMount: !0,
+                className: `main-panel`,
+                children: (0, R.jsx)(RoundTimer, {
+                  active: u === `timer`,
+                }),
+              }),
+              (0, R.jsx)(Rw, {
                 value: `learn`,
                 className: `main-panel`,
                 children: (0, R.jsx)(LearnLibrary, {
@@ -5037,4 +5098,4 @@ function Rally() {
     })
   );
 }
-export { Choice, Rally as default };
+export { Choice, UE as useCountdown, WE as TimerDisplay, HE as formatTime, Rally as default };
