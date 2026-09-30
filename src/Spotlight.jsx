@@ -120,7 +120,7 @@ export default function Spotlight({ open, onClose, onFinish, timer, topic, cues 
                     animate={reduce ? undefined : { scale: [1, 2.1, 1] }}
                     transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                   />
-                  Breathe in for four, out for four. Start when you’re ready.
+                  Take a slow breath in and out, then start when you’re ready.
                 </motion.p>
               )}
             </AnimatePresence>

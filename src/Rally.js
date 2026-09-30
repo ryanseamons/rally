@@ -1127,13 +1127,13 @@ Weigh: opportunity reaches more`,
     },
     {
       title: `They’re talking faster than I can write.`,
-      feel: `A flow is a map, not a transcript.`,
+      feel: `A flow maps the arguments. You don’t need every word.`,
       say: `Write the claim, the reason, and why it matters. Use “b/c,” arrows, and a question mark for a gap.`,
       drill: `Read the NC in the round map. Close it and capture its main points in 20 words.`,
     },
     {
       title: `Four minutes for the 1AR feels impossible.`,
-      feel: `You need priorities, not a second opening speech.`,
+      feel: `Pick the arguments that matter most. Don’t repeat your opening.`,
       say: `“First, the standard. Next, their main argument. Finally, why my case still stands.”`,
       drill: `Choose the two strongest objections from the NC. Give each a 20-second answer; use the final 20 seconds to compare.`,
     },
@@ -1151,7 +1151,7 @@ Weigh: opportunity reaches more`,
     },
     {
       title: `I didn’t understand their case.`,
-      feel: `Clarifying is a debate skill, not a weakness.`,
+      feel: `Asking for clarification is a normal part of debate.`,
       say: `“Could you explain how that reason leads to your conclusion?” Then: “So your claim is…?”`,
       drill: `Ask a parent to make an argument. Restate it in your own words and ask one specific clarification.`,
     },
@@ -1431,7 +1431,7 @@ function GE() {
             t(!0));
         } catch {
           (f.current?.getTracks().forEach((e) => e.stop()),
-            m.current && u(`Mic off — you can still practice.`));
+            m.current && u(`The mic is off. You can still practice.`));
         } finally {
           m.current && i === h.current && r(!1);
         }
@@ -1645,7 +1645,7 @@ function XE({ active: e }) {
         ],
       }),
       (0, R.jsx)(`h3`, {
-        children: `Ask now. Use it later.`,
+        children: `Use their answer in your next speech`,
       }),
       (0, R.jsx)(`div`, {
         className: `demo-steps`,
@@ -1905,7 +1905,7 @@ function $E({ active: e, request: t }) {
                 children: `LINCOLN–DOUGLAS / LISTEN · NOTE · RESPOND`,
               }),
               (0, R.jsx)(`h1`, {
-                children: `Know your next move.`,
+                children: `Walk through a Lincoln–Douglas round.`,
               }),
             ],
           }),
@@ -2110,7 +2110,7 @@ function $E({ active: e, request: t }) {
                   (0, R.jsx)(`summary`, {
                     children: `About this example & tournament timing`,
                   }),
-                  `Illustrative round written for practice — not real evidence. Resolution: schools should prioritize cooperation over competition.`,
+                  `A practice round written for Rally. It isn’t real evidence. Resolution: schools should prioritize cooperation over competition.`,
                   (0, R.jsx)(`br`, {}),
                   `The common LD sequence is 6–3–7–3–4–6–3, plus 4 minutes of preparation per side, used between speaking turns. Your coach or league may differ. `,
                   (0, R.jsx)(`a`, {
@@ -2130,11 +2130,11 @@ function $E({ active: e, request: t }) {
                 className: `flow-intro`,
                 children: [
                   (0, R.jsx)(`h2`, {
-                    children: `Catch the idea, not every word.`,
+                    children: `Practice flowing`,
                   }),
                   (0, R.jsx)(`p`, {
                     className: `lede`,
-                    children: `Listen, then jot keywords in that stage’s column. Follow each argument across the same row. Turn on model notes to watch them land as each idea is spoken.`,
+                    children: `Listen, then jot keywords in that speech’s column. Keep each argument on the same row across columns. Turn on model notes and play the example to see each note appear as it’s spoken.`,
                   }),
                 ],
               }),
@@ -2347,7 +2347,7 @@ function $E({ active: e, request: t }) {
                                 children: [
                                   (0, R.jsx)(`span`, {
                                     className: `eyebrow`,
-                                    children: `MODEL NOTES · COMPARE YOURSELF`,
+                                    children: `MODEL NOTES`,
                                   }),
                                   (0, R.jsx)(LiveModelNotes, {
                                     stage: t,
@@ -2400,11 +2400,11 @@ function $E({ active: e, request: t }) {
                 className: `flow-intro`,
                 children: [
                   (0, R.jsx)(`h2`, {
-                    children: `When the round gets tricky.`,
+                    children: `Tricky moments in a round`,
                   }),
                   (0, R.jsx)(`p`, {
                     className: `lede`,
-                    children: `You don’t need a perfect comeback. You need a next move.`,
+                    children: `Short, practical answers for the moments that trip up new debaters.`,
                   }),
                 ],
               }),
@@ -2545,7 +2545,7 @@ function $E({ active: e, request: t }) {
                         style: {
                           marginTop: 12,
                         },
-                        children: `Find the question that helps.`,
+                        children: `Pick the best question`,
                       }),
                       (0, R.jsx)(`p`, {
                         children: `They say: “Competition is necessary because it gives students a goal.” Which question best tests that connection?`,
@@ -2699,7 +2699,7 @@ function Dashboard({
             children: `Debate with confidence.`,
           }),
           (0, R.jsx)(`p`, {
-            children: `Practice speaking, asking questions, and making your case—one small step at a time.`,
+            children: `Short practice sessions for impromptu speaking and Lincoln–Douglas debate.`,
           }),
           (0, R.jsx)(`div`, {
             className: `welcome-actions`,
@@ -2910,7 +2910,7 @@ function Dashboard({
         onClick: () => n(`tough`),
         children: [
           (0, R.jsx)(`strong`, {
-            children: `Need a little help?`,
+            children: `Quick tips`,
           }),
           (0, R.jsxs)(`span`, {
             children: [
@@ -2932,7 +2932,7 @@ function Dashboard({
           (0, R.jsxs)(`span`, {
             children: [
               (0, R.jsx)(`strong`, {
-                children: `Build your debate toolkit.`,
+                children: `Tips, topics, terms and videos`,
               }),
               (0, R.jsx)(`small`, {
                 children: `20 tips · 50 topics · 50 words · Videos & guides`,
@@ -2961,7 +2961,7 @@ function Dashboard({
                         children: `Next time:`,
                       }),
                       ` `,
-                      r || `Keep building on what worked.`,
+                      r || `Your next step shows up here after you save a reflection.`,
                     ],
                   })
                 : (0, R.jsx)(`p`, {
@@ -3160,17 +3160,13 @@ function LearnLibrary({ onPractice: e }) {
         children: [
           (0, R.jsx)(`span`, {
             className: `eyebrow`,
-            children: `THE RALLY PLAYBOOK`,
+            children: `LEARN`,
           }),
           (0, R.jsxs)(`h1`, {
-            children: [
-              `A little knowledge.`,
-              (0, R.jsx)(`br`, {}),
-              `A lot more confidence.`,
-            ],
+            children: [`Tips, topics and debate terms`],
           }),
           (0, R.jsx)(`p`, {
-            children: `Learn one thing. Try it out loud. Come back for the next.`,
+            children: `Learn one idea, then try it out loud.`,
           }),
         ],
       }),
@@ -3252,7 +3248,7 @@ function LearnLibrary({ onPractice: e }) {
             children: [
               (0, R.jsx)(`p`, {
                 className: `library-note`,
-                children: `20 useful starting points, selected from debate discussions and teaching resources. Community tips are experiences—not official rules. The practice drills are Rally’s adaptations.`,
+                children: `20 starting points from debate discussions and teaching resources. Community tips come from debaters’ experience and aren’t official rules. The practice drills are Rally’s adaptations.`,
               }),
               (0, R.jsx)(`div`, {
                 className: `library-list`,
@@ -3889,11 +3885,11 @@ function ImpromptuPractice({
                     ? (0, R.jsxs)(R.Fragment, {
                         children: [
                           (0, R.jsx)(`h1`, {
-                            children: `Pick a topic. Make it yours.`,
+                            children: `Pick a topic.`,
                           }),
                           (0, R.jsx)(`p`, {
                             className: `lede`,
-                            children: `Choose one. Jot four keywords. Say it out loud.`,
+                            children: `Choose one, jot down a few keywords, then say it out loud.`,
                           }),
                           (0, R.jsxs)(`details`, {
                             className: `pace-details`,
@@ -3924,7 +3920,7 @@ function ImpromptuPractice({
                               }),
                               (0, R.jsxs)(`p`, {
                                 children: [
-                                  `Try this: choose the topic that brings`,
+                                  `Tip: choose the topic that brings`,
                                   (0, R.jsx)(`br`, {}),
                                   `a story or example to mind.`,
                                 ],
@@ -3954,7 +3950,7 @@ function ImpromptuPractice({
                                   className: `section-toolbar`,
                                   children: [
                                     (0, R.jsx)(`h2`, {
-                                      children: `Give your idea a little shape.`,
+                                      children: `Plan your speech`,
                                     }),
                                     (0, R.jsx)(Choice, {
                                       label: `Outline structure`,
@@ -3976,7 +3972,7 @@ function ImpromptuPractice({
                                 }),
                                 (0, R.jsx)(`p`, {
                                   className: `small`,
-                                  children: `Keywords are enough. You’re making a path, not writing an essay.`,
+                                  children: `Keywords are enough. You don’t need full sentences.`,
                                 }),
                                 (0, R.jsx)(`div`, {
                                   className: `speech-outline`,
@@ -4067,7 +4063,7 @@ function ImpromptuPractice({
                                   className: `section-toolbar`,
                                   children: [
                                     (0, R.jsx)(`h2`, {
-                                      children: `Your ideas. Your voice.`,
+                                      children: `Give your speech`,
                                     }),
                                     (0, R.jsxs)(`div`, {
                                       className: `speak-tools`,
@@ -4080,7 +4076,7 @@ function ImpromptuPractice({
                                               className: `spot-dot`,
                                               "aria-hidden": `true`,
                                             }),
-                                            ` Step into the spotlight`,
+                                            ` Open Spotlight`,
                                           ],
                                         }),
                                         (0, R.jsxs)(`button`, {
@@ -4183,7 +4179,7 @@ function ImpromptuPractice({
                                   className: `section-toolbar`,
                                   children: [
                                     (0, R.jsx)(`h2`, {
-                                      children: `What worked? What’s next?`,
+                                      children: `How did it go?`,
                                     }),
                                     (0, R.jsx)(Choice, {
                                       label: `Who is reflecting?`,
@@ -4411,16 +4407,16 @@ function ImpromptuPractice({
                     (0, R.jsx)(`h3`, {
                       children: n
                         ? `Your next focus`
-                        : `Start small. Build from there.`,
+                        : `Start with one idea`,
                     }),
                     (0, R.jsx)(`p`, {
                       children:
                         n ||
-                        `Pick the topic that reminds you of a story, a game, or something you’ve seen. One clear idea is enough.`,
+                        `Pick the topic that reminds you of a story, a game or something you’ve seen. One clear idea is enough.`,
                     }),
                     (0, R.jsx)(`span`, {
                       className: `coach-tag`,
-                      children: `YOU’VE GOT A NEXT STEP`,
+                      children: `YOUR NEXT STEP`,
                     }),
                   ],
                 }),
@@ -4448,8 +4444,8 @@ function ImpromptuPractice({
                         (0, R.jsx)(`h3`, {
                           children:
                             c === 1
-                              ? `Keywords, not an essay.`
-                              : `Give your idea some room.`,
+                              ? `Keywords are enough`
+                              : `Pause between ideas`,
                         }),
                         (0, R.jsx)(`p`, {
                           children:
@@ -4465,7 +4461,7 @@ function ImpromptuPractice({
                   className: `coach-tip`,
                   children: [
                     (0, R.jsx)(`h3`, {
-                      children: `One keep. One next step.`,
+                      children: `Keep one thing, change one thing`,
                     }),
                     (0, R.jsx)(`p`, {
                       children: `You don’t need to fix everything. Pick one small thing to try next time.`,
@@ -4550,11 +4546,11 @@ function Notebook({
                   children: `MY NOTEBOOK`,
                 }),
                 (0, R.jsx)(`h1`, {
-                  children: `Your practice, on the record.`,
+                  children: `Your saved reflections`,
                 }),
                 (0, R.jsx)(`p`, {
                   className: `lede`,
-                  children: `Keep what worked. Pick one thing to try next. Saved in this browser.`,
+                  children: `Each reflection has one thing to keep and one to try next. They’re saved in this browser.`,
                 }),
               ],
             }),
@@ -4592,7 +4588,7 @@ function Notebook({
                   }),
                 }),
                 (0, R.jsx)(`h2`, {
-                  children: `Your first reflection goes here.`,
+                  children: `No reflections yet`,
                 }),
                 (0, R.jsxs)(`p`, {
                   children: [
@@ -4651,7 +4647,7 @@ function Notebook({
                         (
                           e.find((e) => e.judge === `Me` && e.next.trim()) ||
                           e.find((e) => e.next.trim())
-                        )?.next || `Keep building on what worked last time.`,
+                        )?.next || `Build on what worked last time.`,
                     }),
                   ],
                 }),
@@ -4988,7 +4984,7 @@ function Rally() {
                   (0, R.jsxs)(Qw, {
                     children: [
                       (0, R.jsx)($w, {
-                        children: `A space to practice.`,
+                        children: `Your practice stays on this device`,
                       }),
                       (0, R.jsx)(eT, {
                         children: `Your writing stays in this page. Reflections you save go into this browser’s local storage. Audio is recorded only when you choose, stays in this tab, and is lost on reload unless downloaded. No audio or writing is sent to an AI judge. Clearing browser data erases your notebook. Notes do not sync between devices or website addresses.`,
@@ -5145,7 +5141,7 @@ function Rally() {
                   (0, R.jsx)(`strong`, {
                     children: `rally.`,
                   }),
-                  ` Your debate practice space.`,
+                  ` Free debate practice for students.`,
                 ],
               }),
               (0, R.jsx)(`span`, {

@@ -22,7 +22,7 @@ test('complete a speech and save a reflection',async({page})=>{
  await page.goto('/');await page.getByRole('tab',{name:'Impromptu',exact:true}).click();await page.getByRole('button',{name:/Pick this/}).first().click();
  await page.locator('#outline-0').fill('Working together helps us learn');await page.locator('#outline-1').fill('We explain ideas');await page.locator('#outline-2').fill('My science group');
  await page.getByRole('button',{name:'Start timer',exact:true}).click();await expect(page.getByRole('button',{name:'Pause',exact:true})).toBeVisible();
- await page.getByRole('button',{name:'Ready to speak'}).click();await expect(page.getByRole('heading',{name:'Your ideas. Your voice.'})).toBeVisible();
+ await page.getByRole('button',{name:'Ready to speak'}).click();await expect(page.getByRole('heading',{name:'Give your speech'})).toBeVisible();
  await page.getByRole('button',{name:'Finish & reflect'}).click();await page.locator('#keep').fill('Used a clear example');await page.locator('#try').fill('Pause before my last point');await page.getByRole('button',{name:'Save to my notebook'}).click();
  await expect(page.getByRole('article')).toContainText('Used a clear example');expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('rally-notebook')).length)).toBe(1);
 });

@@ -171,8 +171,8 @@ export default function RoundTimer({ active }) {
         <span className="eyebrow">ROUND TIMER</span>
         <h1>Time a practice round.</h1>
         <p className="lede">
-          Speech and prep times, ready to tap. Change any time to match your
-          league. Nothing here is recorded.
+          Speech and prep times for each format. Edit any time to match your
+          league.
         </p>
       </div>
 

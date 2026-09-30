@@ -15,7 +15,7 @@ test('spotlight shows cue words, runs the speech clock, and closes with Escape',
   await page.getByRole('button', { name: /Pick this/ }).first().click();
   await page.locator('#outline-0').fill('Working together helps');
   await page.getByRole('button', { name: 'Ready to speak' }).click();
-  await page.getByRole('button', { name: /Step into the spotlight/ }).click();
+  await page.getByRole('button', { name: /Open Spotlight/ }).click();
   const stage = page.getByRole('dialog', { name: /Spotlight/ });
   await expect(stage).toBeVisible();
   await expect(stage.getByText('Working together helps')).toBeVisible();
@@ -25,11 +25,11 @@ test('spotlight shows cue words, runs the speech clock, and closes with Escape',
   await page.waitForTimeout(1300);
   await page.keyboard.press('Escape');
   await expect(stage).toHaveCount(0);
-  await expect(page.getByRole('button', { name: /Step into the spotlight/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Open Spotlight/ })).toBeVisible();
   // The shared clock kept running behind the stage.
-  await page.getByRole('button', { name: /Step into the spotlight/ }).click();
+  await page.getByRole('button', { name: /Open Spotlight/ }).click();
   await page.getByRole('dialog', { name: /Spotlight/ }).getByRole('button', { name: /Finish/ }).click();
-  await expect(page.getByRole('heading', { name: 'What worked? What’s next?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How did it go?' })).toBeVisible();
 });
 
 test('round ribbon marks the current speech and moves with Next', async ({ page }) => {
