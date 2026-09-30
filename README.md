@@ -10,8 +10,11 @@
 
 - **Impromptu:** choose a topic, plan four ideas, practice with a timer, and reflect.
 - **Lincoln–Douglas:** explore the round, listen to seven examples, practice questions, and learn to take notes.
+- **Round timer:** Public Forum, Lincoln–Douglas and Extemp times with countdown prep for each side. Times are editable and saved in your browser.
 - **Learn:** 20 tips, 50 themes, 50 debate terms, and linked videos and guides.
-- **Notebook:** save reflections in your browser; download and restore backups without replacing existing notes.
+- **Notebook:** save reflections in your browser; download and restore backups without replacing existing notes. **Send to my coach** opens your own email app (or share sheet, or clipboard) with a reflection; Rally doesn't send or store it.
+
+Each section has its own address to share: `/impromptu`, `/lincoln-douglas`, `/timer`, `/learn` and `/notebook`.
 
 I built Rally for my son when he started debate. He tried it and liked it, so I made it public for other students and families.
 
@@ -38,13 +41,17 @@ npm run test:browser
 npm run build
 ```
 
-Browser tests expect the dev server at port 5173 and Google Chrome installed. Production output is in `dist/`.
+Browser tests start the dev server at port 5173 (set `RALLY_TEST_PORT` to use another) and need Google Chrome installed. Production output is in `dist/`.
 
 ## Code map
 
 - `src/Rally.js`: recovered application content and React components.
 - `src/ui-runtime.js`: UI primitives backed by Motion, Radix, and Lucide.
 - `src/NotebookBackup.jsx` and `src/notebook-storage.mjs`: backup UI, validation, and safe merging.
+- `src/RoundTimer.jsx` and `src/round-formats.mjs`: round timer and NSDA speech times.
+- `src/ShareWithCoach.jsx` and `src/coach-message.mjs`: the Send to my coach message.
+- `public/sw.js`: offline support (network-first pages, cached build files).
+- `public/_headers`: security and cache headers for Cloudflare Pages.
 - `src/styles.css`: original design and responsive styles.
 - `public/`: local illustrations, fonts, prerecorded audio, and migration guide.
 - `docs/HOSTING.md`: Cloudflare Pages deployment and domain setup.
