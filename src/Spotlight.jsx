@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Pause, Play, X } from "lucide-react";
 import { formatTime } from "./time-format.mjs";
@@ -44,15 +45,19 @@ export default function Spotlight({ open, onClose, onFinish, timer, topic, cues 
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+    // Everything behind the stage is out of reach for keyboard and screen readers.
+    const app = document.getElementById("root");
+    if (app) app.inert = true;
     requestAnimationFrame(() => primary.current?.focus());
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      if (app) app.inert = false;
       previous?.focus?.();
     };
   }, [open]);
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -136,6 +141,7 @@ export default function Spotlight({ open, onClose, onFinish, timer, topic, cues 
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }
