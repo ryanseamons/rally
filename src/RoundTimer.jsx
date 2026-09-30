@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight, Pause, Play, RotateCcw } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import { Kw as RadioGroup, qw as RadioItem } from "./ui-runtime.js";
 import { formatTime, TimerDisplay, useCountdown } from "./Rally.js";
 import {
@@ -27,9 +28,20 @@ function PrepBank({ side, seconds, active }) {
     if (!active) pause();
   }, [active, pause]);
   const out = timer.left === 0;
+  const tokens = Math.max(1, Math.ceil(seconds / 60));
   return (
     <div className={`prep-bank ${out ? "prep-out" : ""}`}>
       <span className="eyebrow">{side} prep</span>
+      <span className="prep-tokens" aria-hidden="true">
+        {Array.from({ length: tokens }, (_, i) => {
+          const fill = Math.max(0, Math.min(1, (timer.left - i * 60) / Math.min(60, seconds - i * 60)));
+          return (
+            <span key={i} className="prep-token">
+              <motion.span className="prep-token-fill" animate={{ scale: fill }} transition={{ type: "spring", stiffness: 300, damping: 30 }} />
+            </span>
+          );
+        })}
+      </span>
       <span
         className="prep-digits"
         role="timer"
@@ -55,6 +67,37 @@ function PrepBank({ side, seconds, active }) {
         </button>
       </div>
     </div>
+  );
+}
+
+// "Round Ribbon": the whole round as one strip, each speech sized by its length.
+// The current speech swells to hold its clock; finished speeches fill in.
+function RoundRibbon({ speeches, index, left, sideOf, onPick }) {
+  const reduce = useReducedMotion();
+  const spring = reduce ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 30 };
+  return (
+    <ol className="round-ribbon" aria-label="Round order">
+      {speeches.map((s, i) => {
+        const state = i < index ? "done" : i === index ? "now" : "next";
+        const share = i === index && s.seconds ? 1 - Math.max(0, left) / s.seconds : state === "done" ? 1 : 0;
+        return (
+          <motion.li
+            key={`${s.label}-${i}`}
+            layout={!reduce}
+            transition={spring}
+            className={`ribbon-seg side-${sideOf(s.label)} ${state}`}
+            style={{ flexGrow: i === index ? Math.max(s.seconds, 360) : s.seconds }}
+          >
+            <button onClick={() => onPick(i)} aria-current={i === index ? "step" : undefined} aria-label={`${s.label}, ${formatTime(s.seconds)}`}>
+              <motion.span className="ribbon-fill" aria-hidden="true" animate={{ scaleX: share }} transition={{ duration: reduce ? 0 : 0.25 }} />
+              <motion.span layout={!reduce ? "position" : false} className="ribbon-label">
+                {i === index ? s.label : ""}
+              </motion.span>
+            </button>
+          </motion.li>
+        );
+      })}
+    </ol>
   );
 }
 
@@ -115,6 +158,12 @@ export default function RoundTimer({ active }) {
   }
 
   const next = format.speeches[index + 1];
+  const sideOf = (label) =>
+    format.sides[0] && label.startsWith(format.sides[0])
+      ? "a"
+      : format.sides[1] && label.startsWith(format.sides[1])
+        ? "b"
+        : "both";
 
   return (
     <div className="round-timer-page">
@@ -122,8 +171,8 @@ export default function RoundTimer({ active }) {
         <span className="eyebrow">ROUND TIMER</span>
         <h1>Time a practice round.</h1>
         <p className="lede">
-          Speech and prep times, ready to tap. Change any time to match your
-          league. Nothing here is recorded.
+          Speech and prep times for each format. Edit any time to match your
+          league.
         </p>
       </div>
 
@@ -146,6 +195,14 @@ export default function RoundTimer({ active }) {
           </label>
         ))}
       </RadioGroup>
+
+      <RoundRibbon
+        speeches={format.speeches}
+        index={index}
+        left={timer.left}
+        sideOf={sideOf}
+        onPick={setIndex}
+      />
 
       <div className="round-timer-grid">
         <section className="round-main" aria-label="Current speech">
