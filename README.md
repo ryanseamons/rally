@@ -2,7 +2,7 @@
 
 **Debate with confidence.** Free practice tools for middle and high school students.
 
-[Open Rally](https://rally-debate-practice.ryan930945.chatgpt.site/) · [About the project](https://ryanseamons.com/projects/rally/)
+[Open Rally](https://rally-debate-practice.ryan967215.chatgpt.site/) · [About the project](https://ryanseamons.com/projects/rally/)
 
 ![Rally practice dashboard](docs/rally-dashboard.png)
 

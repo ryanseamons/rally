@@ -9,3 +9,5 @@ This repository does not contain the original TypeScript files, original commit 
 Additions: student-wide wording; validated notebook backup/restore; an optional local-only bookmark export guide for the original site's notes; browser and storage tests.
 
 Keep the original site available while students move their notebooks. A new web address cannot directly read another origin's local storage. The export bookmark only reads `rally-notebook` on the exact original hostname and downloads it locally.
+
+On September 30, 2026, the owner requested migration to the current Sites account (ryan@latitude.io). The new project identity is recorded in .openai/hosting.json. Earlier public deployments remain available for notebook migration.
