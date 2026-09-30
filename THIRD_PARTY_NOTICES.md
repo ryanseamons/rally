@@ -1827,7 +1827,9 @@ SOFTWARE.
 
 # Fonts
 
-## court-6.ttf — Inter
+Fonts are served as WOFF2. Inter and Bricolage Grotesque are subset to Latin characters, common punctuation and arrows to reduce download size; neither font has a Reserved Font Name. IBM Plex Mono (Reserved Font Name "Plex") is converted to WOFF2 without other changes.
+
+## court-6.woff2 — Inter
 
 Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
 
@@ -1835,7 +1837,7 @@ Inter
 
 https://openfontlicense.org
 
-## court-4.ttf — Inter Medium
+## court-4.woff2 — Inter Medium
 
 Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
 
@@ -1843,7 +1845,7 @@ Inter Medium
 
 https://openfontlicense.org
 
-## court-5.ttf — Inter SemiBold
+## court-5.woff2 — Inter SemiBold
 
 Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
 
@@ -1851,7 +1853,7 @@ Inter SemiBold
 
 https://openfontlicense.org
 
-## court-1.ttf — Bricolage Grotesque
+## court-1.woff2 — Bricolage Grotesque
 
 Copyright 2022 The Bricolage Grotesque Project Authors (https://github.com/ateliertriay/bricolage)
 
@@ -1859,7 +1861,7 @@ Bricolage Grotesque
 
 https://scripts.sil.org/OFL
 
-## court-0.ttf — Bricolage Grotesque SemiBold
+## court-0.woff2 — Bricolage Grotesque SemiBold
 
 Copyright 2022 The Bricolage Grotesque Project Authors (https://github.com/ateliertriay/bricolage)
 
@@ -1867,7 +1869,7 @@ Bricolage Grotesque SemiBold
 
 https://scripts.sil.org/OFL
 
-## font-3.ttf — IBM Plex Mono Medium
+## font-3.woff2 — IBM Plex Mono Medium
 
 Copyright 2017 IBM Corp. All rights reserved.
 
@@ -1875,7 +1877,7 @@ IBM Plex Mono Medium
 
 http://scripts.sil.org/OFL
 
-## court-2.ttf — Bricolage Grotesque ExtraBold
+## court-2.woff2 — Bricolage Grotesque ExtraBold
 
 Copyright 2022 The Bricolage Grotesque Project Authors (https://github.com/ateliertriay/bricolage)
 
@@ -1883,7 +1885,7 @@ Bricolage Grotesque ExtraBold
 
 https://scripts.sil.org/OFL
 
-## court-3.ttf — Inter
+## court-3.woff2 — Inter
 
 Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
 
@@ -1891,7 +1893,7 @@ Inter
 
 https://openfontlicense.org
 
-## font-2.ttf — IBM Plex Mono
+## font-2.woff2 — IBM Plex Mono
 
 Copyright 2017 IBM Corp. All rights reserved.
 

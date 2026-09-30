@@ -2653,8 +2653,11 @@ function eD(e, t) {
     }, []));
 }
 var tD = {
-  spot: `/images/your-spot.png`,
-  flow: `/images/the-flow.png`,
+  spot: `/images/your-spot-1120.webp`,
+  spotSet: `/images/your-spot-640.webp 640w, /images/your-spot-1120.webp 1120w`,
+  flow: `/images/the-flow-1280.webp`,
+  flowSet: `/images/the-flow-640.webp 640w, /images/the-flow-1280.webp 1280w`,
+  sizes: `(max-width: 820px) 92vw, 630px`,
 };
 function Dashboard({
   onNavigate: e,
@@ -2753,6 +2756,9 @@ function Dashboard({
                 children: [
                   (0, R.jsx)(`img`, {
                     src: tD.spot,
+                    srcSet: tD.spotSet,
+                    sizes: tD.sizes,
+                    decoding: `async`,
                     alt: `Paper collage of a microphone waiting on a school stage`,
                   }),
                   (0, R.jsxs)(`span`, {
@@ -2839,6 +2845,9 @@ function Dashboard({
                 children: [
                   (0, R.jsx)(`img`, {
                     src: tD.flow,
+                    srcSet: tD.flowSet,
+                    sizes: tD.sizes,
+                    decoding: `async`,
                     alt: `A notebook with two columns and arrows connecting opposing ideas`,
                     loading: `lazy`,
                   }),
