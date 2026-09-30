@@ -6,19 +6,20 @@
 
 ![Rally practice dashboard](docs/rally-dashboard.png)
 
-## Practice a little. Get more confident.
+## What's in Rally
 
 - **Impromptu:** choose a topic, plan four ideas, practice with a timer, and reflect.
 - **Lincoln–Douglas:** explore the round, listen to seven examples, practice questions, and learn to take notes.
 - **Round timer:** Public Forum, Lincoln–Douglas and Extemp times with countdown prep for each side. Times are editable and saved in your browser.
 - **Learn:** 20 tips, 50 themes, 50 debate terms, and linked videos and guides.
+- **Motion:** topics are dealt as cards, Spotlight gives speeches a full-screen stage with a draining time ring, model notes appear as each idea is spoken, and the round timer shows the whole round as a strip. Reduced-motion settings get simple fades.
 - **Notebook:** save reflections in your browser; download and restore backups without replacing existing notes. **Send to my coach** opens your own email app (or share sheet, or clipboard) with a reflection; Rally doesn't send or store it.
 
 Each section has its own address to share: `/impromptu`, `/lincoln-douglas`, `/timer`, `/learn` and `/notebook`.
 
 I built Rally for my son when he started debate. He tried it and liked it, so I made it public for other students and families.
 
-## Your practice stays yours
+## Privacy
 
 No account or API key is needed. Notebook entries stay in your browser. Optional speech recordings stay in the tab unless you download them. There is no automatic AI judge. The example readings are prerecorded AI voices.
 
