@@ -1,5 +1,9 @@
 import NotebookBackup from "./NotebookBackup.jsx";
 import RoundTimer from "./RoundTimer.jsx";
+import TopicDeck from "./TopicDeck.jsx";
+import { formatTime } from "./time-format.mjs";
+import Spotlight from "./Spotlight.jsx";
+import LiveModelNotes from "./LiveModelNotes.jsx";
 import ShareWithCoach from "./ShareWithCoach.jsx";
 import { Timer } from "lucide-react";
 import { mergeEntries } from "./notebook-storage.mjs";
@@ -1170,8 +1174,7 @@ function VE({ className: e, value: t, ...n }) {
     }),
   });
 }
-var HE = (e) =>
-  `${Math.floor(Math.max(0, Math.ceil(e)) / 60)}:${String(Math.max(0, Math.ceil(e)) % 60).padStart(2, `0`)}`;
+var HE = formatTime;
 function UE(e) {
   let [t, n] = (0, i.useState)(e),
     [r, a] = (0, i.useState)(!1),
@@ -1742,7 +1745,7 @@ function ZE({ side: e, onChange: t }) {
     ],
   });
 }
-function QE({ stage: e, active: t }) {
+function QE({ stage: e, active: t, onTime }) {
   let n = (0, i.useRef)(null),
     [r, a] = (0, i.useState)(!1),
     o = JE[e];
@@ -1786,6 +1789,13 @@ function QE({ stage: e, active: t }) {
               src: o.src,
               "aria-label": `Listen to ${o.title}`,
               onError: () => a(!0),
+              onTimeUpdate: (ev) =>
+                onTime?.({ stage: e, t: ev.currentTarget.currentTime, playing: !ev.currentTarget.paused }),
+              onPlay: (ev) =>
+                onTime?.({ stage: e, t: ev.currentTarget.currentTime, playing: !0 }),
+              onPause: (ev) =>
+                onTime?.({ stage: e, t: ev.currentTarget.currentTime, playing: !1 }),
+              onEnded: () => onTime?.(null),
             }),
             (0, R.jsxs)(`div`, {
               className: `reading-options`,
@@ -1850,6 +1860,7 @@ function $E({ active: e, request: t }) {
     [s, c] = (0, i.useState)(0),
     [l, u] = (0, i.useState)(`Aff`),
     [d, f] = (0, i.useState)(!1),
+    [live, setLive] = (0, i.useState)(null),
     [p, m] = (0, i.useState)(zE.map(() => [``, ``])),
     [h, g] = (0, i.useState)(zE.map(() => [!1, !1])),
     [_, v] = (0, i.useState)([0, 0]),
@@ -2123,7 +2134,7 @@ function $E({ active: e, request: t }) {
                   }),
                   (0, R.jsx)(`p`, {
                     className: `lede`,
-                    children: `Listen, then jot keywords in that stage’s column. Follow each argument across the same row.`,
+                    children: `Listen, then jot keywords in that stage’s column. Follow each argument across the same row. Turn on model notes to watch them land as each idea is spoken.`,
                   }),
                 ],
               }),
@@ -2158,6 +2169,7 @@ function $E({ active: e, request: t }) {
                     {
                       stage: s,
                       active: e,
+                      onTime: setLive,
                     },
                     `flow-${s}-${e}`,
                   ),
@@ -2337,7 +2349,11 @@ function $E({ active: e, request: t }) {
                                     className: `eyebrow`,
                                     children: `MODEL NOTES · COMPARE YOURSELF`,
                                   }),
-                                  e.model,
+                                  (0, R.jsx)(LiveModelNotes, {
+                                    stage: t,
+                                    text: e.model,
+                                    live,
+                                  }),
                                 ],
                               }),
                           }),
@@ -3636,6 +3652,7 @@ function ImpromptuPractice({
     [ie, ae] = (0, i.useState)(``),
     [oe, se] = (0, i.useState)(0),
     [ce, le] = (0, i.useState)(``),
+    [spot, setSpot] = (0, i.useState)(!1),
     ue = UE(60),
     P = GE(),
     de = xu(),
@@ -3892,7 +3909,8 @@ function ImpromptuPractice({
                               be,
                             ],
                           }),
-                          (0, R.jsx)(rD, {
+                          (0, R.jsx)(TopicDeck, {
+                            topics: LE,
                             draw: r,
                             onChoose: he,
                             onRedraw: a,
@@ -4051,14 +4069,30 @@ function ImpromptuPractice({
                                     (0, R.jsx)(`h2`, {
                                       children: `Your ideas. Your voice.`,
                                     }),
-                                    (0, R.jsxs)(`button`, {
-                                      className: `text-button`,
-                                      onClick: () => re(!0),
+                                    (0, R.jsxs)(`div`, {
+                                      className: `speak-tools`,
                                       children: [
-                                        (0, R.jsx)(Uu, {
-                                          size: 16,
+                                        (0, R.jsxs)(`button`, {
+                                          className: `button primary spotlight-open`,
+                                          onClick: () => setSpot(!0),
+                                          children: [
+                                            (0, R.jsx)(Su.span, {
+                                              className: `spot-dot`,
+                                              "aria-hidden": `true`,
+                                            }),
+                                            ` Step into the spotlight`,
+                                          ],
                                         }),
-                                        ` Timekeeper view`,
+                                        (0, R.jsxs)(`button`, {
+                                          className: `text-button`,
+                                          onClick: () => re(!0),
+                                          children: [
+                                            (0, R.jsx)(Uu, {
+                                              size: 16,
+                                            }),
+                                            ` Timekeeper view`,
+                                          ],
+                                        }),
                                       ],
                                     }),
                                   ],
@@ -4445,6 +4479,20 @@ function ImpromptuPractice({
           }),
         ],
       }),
+      (0, R.jsx)(Spotlight, {
+        open: spot && c === 2 && e,
+        onClose: () => setSpot(!1),
+        onFinish: () => {
+          (setSpot(!1), _e());
+        },
+        timer: ue,
+        topic: LE[u]?.[1] ?? ``,
+        cues: RE[v].map((cue, t) => ({
+          name: cue.name,
+          hint: cue.hint,
+          text: b[t].trim().split(/\s+/).slice(0, 8).join(` `),
+        })),
+      }),
       (0, R.jsx)(Jw, {
         open: N,
         onOpenChange: re,
@@ -4634,8 +4682,11 @@ function Notebook({
                                     : `${e.judge} reflection`,
                                 ` `,
                                 a === e.id &&
-                                  (0, R.jsxs)(`span`, {
-                                    className: `saved-chip`,
+                                  (0, R.jsxs)(Su.span, {
+                                    className: `saved-chip stamp`,
+                                    initial: { scale: 1.9, rotate: -16, opacity: 0 },
+                                    animate: { scale: 1, rotate: -4, opacity: 1 },
+                                    transition: { type: `spring`, stiffness: 520, damping: 18, delay: 0.15 },
                                     children: [
                                       (0, R.jsx)(Lu, {
                                         size: 13,

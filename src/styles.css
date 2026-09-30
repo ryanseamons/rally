@@ -48,3 +48,90 @@
 .coach-status:empty{display:none}
 .prep-bank .button{white-space:nowrap;padding:9px 13px}
 @media (max-width:420px){.prep-banks{gap:8px}.prep-bank{padding:12px}.prep-bank .button{padding:8px 10px;font-size:12px}}
+
+/* ---------- v2 motion: The Draw ---------- */
+.topic-table{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px 22px;align-items:start;margin-top:26px}
+.topic-deck-stack{position:relative;height:168px;margin-top:10px}
+.deck-card{position:absolute;inset:0;border-radius:16px;background:var(--blue);box-shadow:0 1px 0 #1b2fd0}
+.deck-card:nth-child(1){transform:translate(-5px,7px)}
+.deck-card:nth-child(2){transform:translate(-2.5px,3.5px)}
+.deck-card.top{display:grid;place-items:center;box-shadow:0 10px 22px #0d133024}
+.deck-mark{width:52px;height:52px;border:2.5px solid var(--volt);border-radius:50%;display:grid;place-items:center;color:var(--volt);font:800 32px/1 Bricolage Grotesque,sans-serif}
+.topic-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;perspective:1400px}
+.topic-card{position:relative;min-height:300px;padding:0;border:0;background:none;text-align:left;cursor:pointer;transform-style:preserve-3d;color:var(--ink)}
+.topic-card:disabled{cursor:default}
+.topic-card:focus-visible{outline:none}
+.topic-card:focus-visible .card-front{outline:3px solid var(--blue);outline-offset:3px}
+.card-back,.card-front{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.card-back{background:var(--blue);display:grid;place-items:center;transform:rotateY(180deg)}
+.card-front{background:#fffaf1;border:1px solid #e3dccd;box-shadow:0 14px 30px #0d13301f;padding:20px 18px 0;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.topic-card .topic-kind{font:500 11px IBM Plex Mono,monospace;letter-spacing:.14em;color:var(--graphite)}
+.topic-card .topic-copy{font:800 1.45rem/1.08 Bricolage Grotesque,sans-serif;letter-spacing:-.03em}
+.card-tear{margin:auto -18px 0;height:78px;clip-path:polygon(0 22%,11% 8%,23% 22%,37% 6%,51% 20%,65% 4%,79% 18%,91% 6%,100% 16%,100% 100%,0 100%)}
+.tone-volt .card-tear{background:radial-gradient(circle at 30% 70%,#0d133030 1.3px,transparent 1.5px) 0 0/7px 7px,var(--volt)}
+.tone-blue .card-tear{background:radial-gradient(circle at 30% 70%,#ffffff40 1.3px,transparent 1.5px) 0 0/7px 7px,var(--blue)}
+.tone-coral .card-tear{background:radial-gradient(circle at 30% 70%,#0d133026 1.3px,transparent 1.5px) 0 0/7px 7px,var(--coral)}
+.topic-card .pick-topic{position:absolute;left:14px;bottom:14px;background:#fffaf1;box-shadow:0 2px 8px #0d13301a}
+.topic-table .redraw{grid-column:2;justify-self:start;margin-top:4px}
+@media (max-width:899px){.topic-table{grid-template-columns:1fr}.topic-deck-stack{display:none}.topic-table .redraw{grid-column:1}.topic-cards{grid-template-columns:1fr;perspective:none}.topic-card{min-height:180px}.card-tear{height:44px}}
+
+/* ---------- v2 motion: Spotlight ---------- */
+.speak-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.spotlight-open{gap:10px}
+.spot-dot{width:10px;height:10px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 4px #0d133022}
+.spotlight{position:fixed;inset:0;z-index:60;background:#0b1026;color:#f3eee4;display:grid;grid-template-rows:1fr auto;padding:64px clamp(20px,6vw,90px) 36px;overflow:auto}
+.spotlight-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 46% 40% at 50% 44%,#f6d9a526,transparent 70%)}
+.spotlight-ring{position:fixed;inset:0;pointer-events:none;overflow:visible}
+.spotlight-ring path{fill:none;stroke-width:5;stroke-linecap:round}
+.ring-track{stroke:#ffffff14}
+.ring-light{stroke:var(--volt);transition:stroke .4s,stroke-dasharray .12s linear;filter:drop-shadow(0 0 6px #d4ff3a66)}
+.spotlight.late .ring-light{stroke:#ff5a36;filter:drop-shadow(0 0 6px #ff5a3666)}
+.spotlight-time{position:fixed;top:20px;left:50%;transform:translateX(-50%);font:500 15px IBM Plex Mono,monospace;letter-spacing:.08em;background:#0b1026;padding:2px 14px;color:#f3eee4d9;font-variant-numeric:tabular-nums}
+.spotlight-close{position:fixed;top:24px;right:28px;color:#f3eee4b3}
+.spotlight-body{position:relative;align-self:center;max-width:1000px;width:100%;margin:0 auto}
+.spotlight-topic{font:500 13px IBM Plex Mono,monospace;letter-spacing:.12em;text-transform:uppercase;color:#f3eee48c;margin-bottom:22px}
+.spotlight-cues{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.spotlight-cues li{display:grid;gap:2px}
+.cue-label{font:500 12px IBM Plex Mono,monospace;letter-spacing:.14em;text-transform:uppercase;color:#d4ff3acc}
+.cue-text{font:800 clamp(2rem,5.4vw,4.4rem)/1.02 Bricolage Grotesque,sans-serif;letter-spacing:-.045em;text-wrap:balance}
+.spotlight-cues li.empty .cue-text{color:#f3eee44d}
+.spotlight-foot{position:relative;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-top:36px}
+.spotlight-breath{display:flex;align-items:center;gap:14px;font-size:14px;color:#f3eee4b3;margin:0}
+.breath-dot{width:12px;height:12px;border-radius:50%;background:var(--volt);flex-shrink:0}
+.spotlight-actions{display:flex;gap:10px;margin-left:auto}
+.spotlight-finish{background:transparent;color:#f3eee4;border-color:#ffffff33}
+.spotlight .icon-button:focus-visible,.spotlight .button:focus-visible{outline:3px solid var(--volt);outline-offset:3px}
+@media (max-width:699px){.spotlight{padding:60px 22px 28px}.spotlight-cues{gap:12px}.spotlight-actions{margin-left:0;width:100%}.spotlight-actions .button{flex:1}}
+
+/* ---------- v2 motion: Living Flow ---------- */
+.live-notes{display:grid;gap:6px;margin-top:6px;white-space:normal}
+.live-line{position:relative;display:block;padding-bottom:6px}
+.live-ink{position:absolute;left:0;bottom:0;width:100%;height:6px;overflow:visible}
+.live-ink path{fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.55}
+.live-badge{display:inline-flex;align-items:center;gap:7px;font:500 11px IBM Plex Mono,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--volt);border-radius:999px;padding:3px 9px;justify-self:start}
+.live-badge i{width:7px;height:7px;border-radius:50%;background:var(--coral)}
+.live-waiting{color:var(--graphite);letter-spacing:.2em}
+
+/* ---------- v2 motion: Round Ribbon ---------- */
+.round-ribbon{list-style:none;margin:0 0 26px;padding:0;display:flex;gap:4px;align-items:stretch;height:64px}
+.ribbon-seg{flex-basis:0;min-width:8px;display:flex}
+.ribbon-seg button{position:relative;flex:1;border:1.5px solid var(--seg);background:transparent;border-radius:10px;overflow:hidden;cursor:pointer;padding:0 10px;text-align:left;color:#fff}
+.ribbon-seg.side-a{--seg:var(--blue)}
+.ribbon-seg.side-b{--seg:var(--coral)}
+.ribbon-seg.side-both{--seg:var(--ink)}
+.ribbon-fill{position:absolute;inset:0;background:var(--seg);transform-origin:left center}
+.ribbon-seg.done .ribbon-fill{opacity:.85}
+.ribbon-seg.now button{border-width:2px;box-shadow:0 6px 16px #0d133022}
+.ribbon-seg.now .ribbon-fill{opacity:.9}
+.ribbon-label{position:relative;font:700 13px/1.2 Inter,sans-serif;white-space:nowrap;color:var(--ink);mix-blend-mode:normal}
+.ribbon-seg.now .ribbon-label{color:var(--ink)}
+.ribbon-seg button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.prep-tokens{display:flex;gap:6px;margin:2px 0 4px}
+.prep-token{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;overflow:hidden}
+.prep-token-fill{width:100%;height:100%;border-radius:50%;background:var(--ink)}
+@media (max-width:699px){.round-ribbon{height:44px;gap:3px}.ribbon-label{display:none}}
+
+/* ---------- v2 motion: save stamp ---------- */
+.saved-chip.stamp{border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
+.spotlight-actions .button{white-space:nowrap}
+@media (max-width:420px){.spotlight-actions .button{padding-inline:12px;font-size:13px}}
