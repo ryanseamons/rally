@@ -19,6 +19,10 @@ Each section has its own address to share: `/impromptu`, `/lincoln-douglas`, `/t
 
 I built Rally for my son when he started debate. He tried it and liked it, so I made it public for other students and families.
 
+The Lincoln–Douglas example round uses the current NSDA topic (September–October 2026: “Outer space colonization is a moral imperative.”). See [docs/TOPIC-UPDATE.md](docs/TOPIC-UPDATE.md) for refreshing it when the topic changes.
+
+Questions or feedback: ryanseamons@gmail.com.
+
 ## Privacy
 
 No account or API key is needed. Notebook entries stay in your browser. Optional speech recordings stay in the tab unless you download them. There is no automatic AI judge. The example readings are prerecorded AI voices.

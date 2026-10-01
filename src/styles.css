@@ -135,3 +135,11 @@
 .saved-chip.stamp{border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
 .spotlight-actions .button{white-space:nowrap}
 @media (max-width:420px){.spotlight-actions .button{padding-inline:12px;font-size:13px}}
+
+/* Footer credit and feedback */
+footer{flex-wrap:wrap;align-items:baseline}
+footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+footer a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:699px){footer{flex-direction:column;align-items:flex-start;gap:6px}}
+.season-topic{margin-top:14px;max-width:62ch}
+.season-topic strong{color:var(--ink)}

@@ -47,9 +47,22 @@ test('model notes land in time with the example reading', async ({ page }) => {
   await page.getByRole('button', { name: 'Compare model notes' }).click();
   const acNotes = page.locator('.flow-col').first().locator('.live-line');
   await expect(acNotes).toHaveCount(3);
-  await page.locator('audio').first().evaluate((a) => { a.muted = true; a.currentTime = 6; return a.play(); });
+  const audio = page.locator('audio').first();
+  await audio.evaluate((a) => { a.muted = true; a.preload = 'auto'; a.load(); });
+  await audio.evaluate((a) => new Promise((r) => (a.readyState >= 1 ? r() : a.addEventListener('loadedmetadata', r, { once: true }))));
+  await audio.evaluate((a) => { a.currentTime = 7; return a.play(); });
   await expect(page.locator('.live-badge')).toBeVisible();
   await expect(acNotes).toHaveCount(1);
-  await page.locator('audio').first().evaluate((a) => { a.currentTime = 16; });
-  await expect(acNotes).toHaveCount(3);
+  await audio.evaluate((a) => { a.currentTime = 16; });
+  await expect(acNotes).toHaveCount(2);
+});
+
+test('the example round is on the current NSDA topic and the footer credits and links feedback', async ({ page }) => {
+  await page.goto('/lincoln-douglas');
+  await expect(page.getByText('Outer space colonization is a moral imperative.').first()).toBeVisible();
+  const footer = page.locator('footer');
+  await expect(footer.getByRole('link', { name: 'Ryan Seamons' })).toHaveAttribute('href', 'https://ryanseamons.com/projects/rally/');
+  await expect(footer.getByRole('link', { name: 'ryanseamons@gmail.com' })).toHaveAttribute('href', /^mailto:ryanseamons@gmail\.com/);
+  const audioOk = await page.evaluate(async () => (await fetch('/audio/ld-1-2c6c0d13fc31.mp3', { method: 'HEAD' })).ok);
+  expect(audioOk).toBe(true);
 });
