@@ -5156,17 +5156,12 @@ function Rally() {
               }),
               (0, R.jsxs)(`span`, {
                 children: [
-                  `Made by `,
+                  `Made by Ryan Seamons, a debate parent. Questions or feedback: `,
                   (0, R.jsx)(`a`, {
-                    href: `https://ryanseamons.com/projects/rally/`,
+                    href: `https://ryanseamons.com/`,
                     target: `_blank`,
                     rel: `noreferrer`,
-                    children: `Ryan Seamons`,
-                  }),
-                  `, a debate parent. Questions or feedback: `,
-                  (0, R.jsx)(`a`, {
-                    href: `mailto:redacted@example.com?subject=Rally%20feedback`,
-                    children: `redacted@example.com`,
+                    children: `ryanseamons.com`,
                   }),
                 ],
               }),
