@@ -61,8 +61,8 @@ test('the example round is on the current NSDA topic and the footer credits and 
   await page.goto('/lincoln-douglas');
   await expect(page.getByText('Outer space colonization is a moral imperative.').first()).toBeVisible();
   const footer = page.locator('footer');
-  await expect(footer).toContainText('Made by Ryan Seamons, a debate parent.');
-  await expect(footer.getByRole('link', { name: 'ryanseamons.com' })).toHaveAttribute('href', 'https://ryanseamons.com/');
+  await expect(footer).toContainText('Made by Ryan, a debate dad.');
+  await expect(footer.getByRole('link', { name: 'Ryan', exact: true })).toHaveAttribute('href', 'https://ryanseamons.com/');
   await expect(footer.getByText('@')).toHaveCount(0);
   const audioOk = await page.evaluate(async () => (await fetch('/audio/ld-1-2c6c0d13fc31.mp3', { method: 'HEAD' })).ok);
   expect(audioOk).toBe(true);
