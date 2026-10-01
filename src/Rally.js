@@ -2,6 +2,7 @@ import NotebookBackup from "./NotebookBackup.jsx";
 import RoundTimer from "./RoundTimer.jsx";
 import TopicDeck from "./TopicDeck.jsx";
 import { formatTime } from "./time-format.mjs";
+import { LD_TOPIC } from "./season.mjs";
 import Spotlight from "./Spotlight.jsx";
 import LiveModelNotes from "./LiveModelNotes.jsx";
 import ShareWithCoach from "./ShareWithCoach.jsx";
@@ -1001,11 +1002,11 @@ var learningSources = {
       aff: `Speak`,
       neg: `Listen + write`,
       guide: `Introduce your value, explain your criterion, and give reasons to affirm. A value is what matters; a criterion is how you decide which side protects it best.`,
-      script: `I affirm that schools should prioritize cooperation over competition. My value is fairness. My criterion is meaningful opportunity to learn. First, working together lets students explain ideas to each other. Second, shared goals can include students who rarely finish first.`,
-      model: `V: fairness · C: opportunity to learn
-1. Peer explanation → learning
-2. Shared goals → inclusion`,
-      question: `How would you tell whether everyone is learning in a group?`,
+      script: `I affirm that outer space colonization is a moral imperative. My value is protecting human life. My criterion is reducing the risk of human extinction. First, as long as people live on only one planet, one disaster could end humanity. Second, settlements beyond Earth give future generations a chance to survive and keep learning.`,
+      model: `V: protecting life · C: reduce extinction risk
+1. One planet → one disaster ends all
+2. Settlements → future generations`,
+      question: `How would you decide whether a duty to future people outweighs a duty to people alive today?`,
     },
     {
       short: `CX`,
@@ -1017,12 +1018,12 @@ var learningSources = {
       aff: `Answer`,
       neg: `Ask + note`,
       guide: `The negative asks; the affirmative answers. Ask one short question, listen, then follow up. Jot the useful answer after it lands. Save your argument for your next speech.`,
-      script: `NEG: Does cooperation mean that every student contributes equally?
-AFF: Not always, but roles can be assigned.
-NEG: If one student does the work, has everyone had an opportunity to learn?
-AFF: No. Cooperation needs individual responsibility.`,
-      model: `Aff concedes: group work needs
-individual responsibility.
+      script: `NEG: Is colonizing space the only way to reduce the risk of extinction?
+AFF: No, but it protects against risks we can't fix on Earth.
+NEG: If colonies take decades and huge resources, could those resources protect more lives on Earth now?
+AFF: Maybe in the short term. My case is about long-term survival.`,
+      model: `Aff concedes: colonies aren't the only
+way to reduce risk, and they cost now.
 Use in NC; CX alone is not a rebuttal.`,
       question: `What does that answer let you argue in your next speech?`,
     },
@@ -1036,12 +1037,12 @@ Use in NC; CX alone is not a rebuttal.`,
       aff: `Listen + write`,
       neg: `Speak`,
       guide: `The negative presents a case AND responds to the affirmative. As affirmative, flow short labels, reasons, and impacts. Star your priorities for the four-minute reply.`,
-      script: `I negate. I also value fairness, but my criterion is recognizing individual growth. Friendly competition can give students a clear goal and feedback. On their first point, group success does not show that each student understands. In cross-examination they agreed that cooperation needs individual responsibility. On inclusion, competitions can reward improvement rather than just first place.`,
-      model: `V: fairness · C: individual growth
-Goal + feedback → motivation
-A1: group success ≠ understanding
-A2: reward improvement, not rank`,
-      question: `Why does competition measure individual growth better than a personal goal?`,
+      script: `I negate. I also value protecting human life, but my criterion is meeting our duties to people alive today. A moral imperative is an obligation, not a good idea we can choose. On their first point, there are other ways to reduce extinction risk, like preventing disasters here on Earth. In cross-examination they agreed that colonies cost resources we could use now. On future generations, our first duty is to people who are already here and need help.`,
+      model: `V: protecting life · C: duties to people now
+Imperative = obligation, not option
+A1: other ways to reduce risk
+A2: present needs come first`,
+      question: `Why should duties to people alive now come before risks to people in the future?`,
     },
     {
       short: `CX`,
@@ -1053,14 +1054,14 @@ A2: reward improvement, not rank`,
       aff: `Ask + note`,
       neg: `Answer`,
       guide: `The affirmative asks; the negative answers. Use clarification, a test, and a follow-up. You do not need a dramatic “gotcha.” A useful answer is enough.`,
-      script: `AFF: Could students set personal goals without competing against classmates?
-NEG: Yes, but competition can make goals exciting.
-AFF: So a personal goal can still measure growth?
-NEG: Yes. My argument is that competition can add motivation.`,
-      model: `Neg concedes: personal goals
-can measure growth.
-Dispute is added motivation.`,
-      question: `How will you use the personal-goals answer in the 1AR?`,
+      script: `AFF: Would preventing disasters on Earth protect us from every risk, like a large asteroid?
+NEG: Not every risk, but most risks are ones we can work on here.
+AFF: So some risks can only be survived by living somewhere else?
+NEG: A few. My argument is that today's needs come first.`,
+      model: `Neg concedes: some risks can only
+be survived off Earth.
+Dispute is which duty comes first.`,
+      question: `How will you use the “some risks” answer in the 1AR?`,
     },
     {
       short: `1AR`,
@@ -1072,12 +1073,12 @@ Dispute is added motivation.`,
       aff: `Speak`,
       neg: `Listen + write`,
       guide: `This is the tight speech: four minutes to answer seven. Signpost by argument. Prioritize the standard and strongest objections; do not spend all your time repeating your opening.`,
-      script: `On the standard, fairness should protect opportunities for all students, not only measure individual growth. On motivation, they agreed personal goals can measure growth without competition. On my first point, assigning roles addresses unequal contribution while keeping peer explanation. On inclusion, rewarding improvement helps, but a shared goal lets students succeed together.`,
-      model: `Standard: opportunity for all
-Motivation: personal goals alternative
-A1: roles solve contribution
-A2: shared success includes more`,
-      question: `Which answer matters most to the value of fairness?`,
+      script: `On the standard, protecting life includes the people who will live in the future, as well as people alive now. On other ways to reduce risk, they agreed some risks can only be survived by living somewhere else. On their duty to the present, we can help people now and still begin building settlements. On future generations, if humanity ends, every future life is lost.`,
+      model: `Standard: future lives count too
+Some risks only survivable off Earth
+Both: help now + build settlements
+Extinction loses every future life`,
+      question: `Which answer matters most to the value of protecting life?`,
     },
     {
       short: `NR`,
@@ -1089,10 +1090,10 @@ A2: shared success includes more`,
       aff: `Listen + write`,
       neg: `Speak`,
       guide: `Answer the 1AR and explain why your reasons matter more. Keep extending the arguments you rely on. Do not introduce a brand-new case in the final speeches.`,
-      script: `The central question is how to make fairness real for each student. They say roles solve unequal contribution, but a role alone does not show understanding. My individual-growth standard gives each student feedback. Personal goals can work, but friendly competition can add motivation. Prefer my approach when group success hides who still needs help.`,
-      model: `Clash: opportunity vs growth
-Roles ≠ proof of understanding
-Weigh: feedback finds learning gaps`,
+      script: `The central question is what we owe people right now. They say we can do both, but money, time and scientists are limited. Calling colonization an imperative makes it a duty even while people on Earth still need help. My standard keeps our duties clear. Prefer my side when a distant benefit competes with people who need help today.`,
+      model: `Clash: duties now vs future lives
+Limited resources → real trade-off
+Weigh: present needs are certain`,
       question: `What is the affirmative’s strongest remaining reason?`,
     },
     {
@@ -1105,10 +1106,10 @@ Weigh: feedback finds learning gaps`,
       aff: `Speak`,
       neg: `Listen + write`,
       guide: `Close the existing debate. Choose the decisive clash, answer the negative’s comparison, and explain why your impact matters more. New reasons are not a substitute for extending earlier ones.`,
-      script: `The deciding issue is meaningful opportunity for everyone. We can keep individual responsibility within cooperation, as I explained in the 1AR. They conceded that personal goals measure growth, so competition is not necessary for that benefit. Prioritize cooperation because shared goals and peer explanation reach students who are not motivated by winning.`,
-      model: `Extend roles + peer explanation
-Personal goals preserve growth
-Weigh: opportunity reaches more`,
+      script: `The deciding issue is whether humanity survives at all. They agreed that some risks can only be survived by living somewhere else. Helping people today matters, and nothing in my case stops it. But if humanity ends, every future life is lost, so beginning settlements is a duty we share. Affirm because protecting life means protecting the future too.`,
+      model: `Extend: some risks need off-Earth homes
+Both: helping now continues
+Weigh: extinction loses all future lives`,
       question: `How did this ending connect back to the criterion?`,
     },
   ],
@@ -1140,14 +1141,14 @@ Weigh: opportunity reaches more`,
     {
       title: `Value and criterion sound the same.`,
       feel: `Think destination and measuring stick.`,
-      say: `“My value is fairness. My criterion is meaningful opportunity to learn: which side gives more students that opportunity?”`,
+      say: `“My value is protecting human life. My criterion is reducing the risk of extinction: which side does more to keep humanity going?”`,
       drill: `Name a value. Give one way to measure it. Explain how your argument meets that measure.`,
     },
     {
       title: `How do I actually weigh arguments?`,
       feel: `A judge needs a comparison, not just two good points.`,
       say: `“Even if their benefit happens, mine matters more because…” Compare who is affected, how much, or how likely.`,
-      drill: `Compare cooperation’s inclusion benefit with competition’s motivation benefit. Pick a standard and explain which matters more under it.`,
+      drill: `Compare the affirmative’s long-term survival benefit with the negative’s duty to people today. Pick a standard and explain which matters more under it.`,
     },
     {
       title: `I didn’t understand their case.`,
@@ -1497,101 +1498,101 @@ function qE({ className: e, ...t }) {
 }
 var JE = [
     {
-      src: `/audio/ld-1-eeea0d788eb0.mp3`,
-      duration: 20,
+      src: `/audio/ld-1-2c6c0d13fc31.mp3`,
+      duration: 30,
       title: `Affirmative constructive`,
-      sourceHash: `0d616e2e9c6a2286e145de3d6f23baf66ed935a85f45fa8499caee3451502be5`,
+      sourceHash: `2a33338c12097835b8233aa117206a3dd4ecc6fd97f8b4888afcaa3b1933a104`,
       voices: {
         Aff: `Kayla`,
       },
-      model: `inworld-tts-2`,
+      model: `inworld-tts-1.5-max`,
     },
     {
-      src: `/audio/ld-2-4d33929f15f9.mp3`,
-      duration: 20,
+      src: `/audio/ld-2-04f36ff09d13.mp3`,
+      duration: 23,
       title: `Negative asks questions`,
-      sourceHash: `adee536c47d89aebdf11589d4961a3e1d90f17203dbe778bfdb5d4f79704b670`,
+      sourceHash: `980acdfa58273a4b97c3d30835e320be2c04562b13c9e3087e78da6cc0a59268`,
       voices: {
         Aff: `Kayla`,
-        Neg: `Casey`,
+        Neg: `Ethan`,
       },
-      model: `inworld-tts-2`,
+      model: `inworld-tts-1.5-max`,
     },
     {
-      src: `/audio/ld-3-3aa3eb9cfbca.mp3`,
-      duration: 27,
+      src: `/audio/ld-3-b6fab88dbf18.mp3`,
+      duration: 32,
       title: `Negative constructive`,
-      sourceHash: `4a8c17be30713891bf75822d5596394bc83b6cd312bf88781e7ed8b153959fa1`,
+      sourceHash: `0bedfd7d94a828b9c038c38a96c7b6f269ba17370629a648d90008e800790a60`,
       voices: {
-        Neg: `Casey`,
+        Neg: `Ethan`,
       },
-      model: `inworld-tts-2`,
+      model: `inworld-tts-1.5-max`,
     },
     {
-      src: `/audio/ld-4-6f2d2a44268c.mp3`,
-      duration: 20,
+      src: `/audio/ld-4-e85951860db8.mp3`,
+      duration: 24,
       title: `Affirmative asks questions`,
-      sourceHash: `df460e52d60167091d92ebde563845d89bcead025cd045e5ac0733b3361e30c6`,
+      sourceHash: `35f8c88c452be8c2d5548291cb2ecdd4130f57c8bd2ef69cb382d091c4d5365b`,
       voices: {
         Aff: `Kayla`,
-        Neg: `Casey`,
+        Neg: `Ethan`,
       },
-      model: `inworld-tts-2`,
+      model: `inworld-tts-1.5-max`,
     },
     {
-      src: `/audio/ld-5-379b3b868115.mp3`,
-      duration: 26,
+      src: `/audio/ld-5-039f142cf121.mp3`,
+      duration: 28,
       title: `First affirmative rebuttal`,
-      sourceHash: `193c6cab2bfab63338f8b0b1eb0b8cb700156d78d1b383fc58b87a9af4c10824`,
+      sourceHash: `c0da0f37721fdfd6bbfcfd46ed5bcc81c75a6b91792cfa9d38875216ad1b6865`,
       voices: {
         Aff: `Kayla`,
       },
-      model: `inworld-tts-2`,
+      model: `inworld-tts-1.5-max`,
     },
     {
-      src: `/audio/ld-6-fe34e8933e27.mp3`,
-      duration: 22,
+      src: `/audio/ld-6-de6ec9da9047.mp3`,
+      duration: 25,
       title: `Negative rebuttal`,
-      sourceHash: `bdd1d2c301ec2f5b04e819ab9efce8c8f1ebd0af4f5119297276439825f734ad`,
+      sourceHash: `531bba85fa03a93327f1c47609c16a4fac82e6d389c77b8cc4d04027d059fe94`,
       voices: {
-        Neg: `Casey`,
+        Neg: `Ethan`,
       },
-      model: `inworld-tts-2`,
+      model: `inworld-tts-1.5-max`,
     },
     {
-      src: `/audio/ld-7-0a45377e19a2.mp3`,
-      duration: 27,
+      src: `/audio/ld-7-93df7810c6cd.mp3`,
+      duration: 29,
       title: `Final affirmative rebuttal`,
-      sourceHash: `91960ee599c648fa950c9db1faae3f50b5f7a5faa15af42e9244650f893b2779`,
+      sourceHash: `040956b7f117a37ce7631037899aded9d4647d9fdbcf1de8089d79b54d95da60`,
       voices: {
         Aff: `Kayla`,
       },
-      model: `inworld-tts-2`,
+      model: `inworld-tts-1.5-max`,
     },
   ],
   YE = [
     {
       label: `THEIR CLAIM`,
       side: `neg`,
-      title: `“Competition gives students a goal.”`,
-      note: `Listen for the link: does a goal require competition?`,
+      title: `“We should help people on Earth first.”`,
+      note: `Listen for the link: does helping now rule out building settlements?`,
     },
     {
       label: `YOUR CX QUESTION`,
       side: `aff`,
-      title: `“Could students set personal goals without competing?”`,
+      title: `“Could we help people now and still begin settlements?”`,
       note: `Ask one short question. Listen to the whole answer.`,
     },
     {
       label: `THEIR ANSWER`,
       side: `neg`,
-      title: `“Yes, but competition can make goals exciting.”`,
-      note: `Write: personal goals → growth. They still claim added motivation.`,
+      title: `“Yes, but resources are limited.”`,
+      note: `Write: both are possible. They still claim a trade-off.`,
     },
     {
       label: `YOUR NEXT SPEECH`,
       side: `aff`,
-      title: `“They agreed personal goals can measure growth.”`,
+      title: `“They agreed we can do both.”`,
       note: `Use the answer in your rebuttal, then explain why your side is stronger.`,
     },
   ];
@@ -1907,6 +1908,15 @@ function $E({ active: e, request: t }) {
               (0, R.jsx)(`h1`, {
                 children: `Walk through a Lincoln–Douglas round.`,
               }),
+              (0, R.jsxs)(`p`, {
+                className: `lede season-topic`,
+                children: [
+                  `The example round uses the ${LD_TOPIC.window} NSDA topic: `,
+                  (0, R.jsxs)(`strong`, {
+                    children: [`“`, LD_TOPIC.resolution, `”`],
+                  }),
+                ],
+              }),
             ],
           }),
           (0, R.jsx)(ZE, {
@@ -2110,7 +2120,7 @@ function $E({ active: e, request: t }) {
                   (0, R.jsx)(`summary`, {
                     children: `About this example & tournament timing`,
                   }),
-                  `A practice round written for Rally. It isn’t real evidence. Resolution: schools should prioritize cooperation over competition.`,
+                  `A practice round written for Rally on the ${LD_TOPIC.window} NSDA Lincoln–Douglas topic. It isn’t real evidence. Resolution: ${LD_TOPIC.resolution}`,
                   (0, R.jsx)(`br`, {}),
                   `The common LD sequence is 6–3–7–3–4–6–3, plus 4 minutes of preparation per side, used between speaking turns. Your coach or league may differ. `,
                   (0, R.jsx)(`a`, {
@@ -2548,7 +2558,7 @@ function $E({ active: e, request: t }) {
                         children: `Pick the best question`,
                       }),
                       (0, R.jsx)(`p`, {
-                        children: `They say: “Competition is necessary because it gives students a goal.” Which question best tests that connection?`,
+                        children: `They say: “Colonizing space is necessary because one disaster could end humanity on a single planet.” Which question best tests that connection?`,
                       }),
                       (0, R.jsx)(Kw, {
                         value: x,
@@ -2561,9 +2571,9 @@ function $E({ active: e, request: t }) {
                           [`a`, `“Why is your entire case wrong?”`],
                           [
                             `b`,
-                            `“Can students set a goal without competing against someone?”`,
+                            `“Are there ways to reduce extinction risk without leaving Earth?”`,
                           ],
-                          [`c`, `“Don’t you agree cooperation is better?”`],
+                          [`c`, `“Don’t you agree we should fix Earth first?”`],
                         ].map(([e, t]) =>
                           (0, R.jsxs)(
                             `label`,
@@ -2602,7 +2612,7 @@ function $E({ active: e, request: t }) {
                                   : `Try a question with a narrower target.`,
                             }),
                             (0, R.jsx)(`p`, {
-                              children: `Ask whether goals require competition. If the answer is no, your next speech can say: “Their goal-setting benefit can happen without competition.” Ask now, explain the importance later.`,
+                              children: `Ask whether there are other ways to reduce the risk. If the answer is yes, your next speech can say: “Their safety benefit doesn’t require colonizing space.” Ask now, explain why it matters in your next speech.`,
                             }),
                           ],
                         }),
@@ -2699,7 +2709,7 @@ function Dashboard({
             children: `Debate with confidence.`,
           }),
           (0, R.jsx)(`p`, {
-            children: `Short practice sessions for impromptu speaking and Lincoln–Douglas debate.`,
+            children: `Short practice sessions for impromptu speaking and Lincoln–Douglas debate, plus a round timer for Public Forum, Lincoln–Douglas and Extemp.`,
           }),
           (0, R.jsx)(`div`, {
             className: `welcome-actions`,
@@ -5142,6 +5152,22 @@ function Rally() {
                     children: `rally.`,
                   }),
                   ` Free debate practice for students.`,
+                ],
+              }),
+              (0, R.jsxs)(`span`, {
+                children: [
+                  `Made by `,
+                  (0, R.jsx)(`a`, {
+                    href: `https://ryanseamons.com/projects/rally/`,
+                    target: `_blank`,
+                    rel: `noreferrer`,
+                    children: `Ryan Seamons`,
+                  }),
+                  `, a debate parent. Questions or feedback: `,
+                  (0, R.jsx)(`a`, {
+                    href: `mailto:ryanseamons@gmail.com?subject=Rally%20feedback`,
+                    children: `ryanseamons@gmail.com`,
+                  }),
                 ],
               }),
               (0, R.jsx)(`span`, {
