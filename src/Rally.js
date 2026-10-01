@@ -5156,13 +5156,14 @@ function Rally() {
               }),
               (0, R.jsxs)(`span`, {
                 children: [
-                  `Made by Ryan Seamons, a debate parent. Questions or feedback: `,
+                  `Made by `,
                   (0, R.jsx)(`a`, {
                     href: `https://ryanseamons.com/`,
                     target: `_blank`,
                     rel: `noreferrer`,
-                    children: `ryanseamons.com`,
+                    children: `Ryan`,
                   }),
+                  `, a debate dad.`,
                 ],
               }),
               (0, R.jsx)(`span`, {
